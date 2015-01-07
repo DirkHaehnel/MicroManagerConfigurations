@@ -1,0 +1,21 @@
+import org.micromanager.api.PositionList;
+import org.micromanager.api.Autofocus;
+import org.micromanager.api.AcquisitionOptions;
+import org.micromanager.api.MultiStagePosition;
+import org.micromanager.PositionListDlg;
+
+xyStage = mmc.getXYStageDevice();
+zStage = mmc.getFocusDevice();
+
+PositionList pl = new PositionList();
+gui.message(xyStage);
+gui.message(zStage);
+MultiStagePosition msp = new MultiStagePosition(xyStage, 1.0, 1.0, zStage, 100.0);
+msp.setLabel("Test Position one");
+msp.setProperty("Slide","Number 1");
+pl.addPosition(msp);
+msp = new MultiStagePosition(xyStage, 4.0, 0.0, zStage, 98.0);
+msp.setLabel("Test Position two");
+msp.setProperty("Slide", "Number 2");
+pl.addPosition(msp);
+gui.setPositionList(pl);
